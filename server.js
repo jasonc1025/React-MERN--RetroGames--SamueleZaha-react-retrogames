@@ -15,7 +15,11 @@ const options = {
   replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
 };
 mongoose.Promise = global.Promise;
-mongoose.connect('YOUR_MONGODB_URL', options);
+
+// [jwc]+x let uri = mongodb://<dbuser>:<dbpassword>@ds231589.mlab.com:31589/react-mern--retrogames--samuelezaha
+let uri = 'mongodb://a:aaaaaa@ds231589.mlab.com:31589/react-mern--retrogames--samuelezaha';
+// mongoose.connect('YOUR_MONGODB_URL', options);
+mongoose.connect(uri, options);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

@@ -27,13 +27,14 @@ class Login extends PureComponent {
 						<div className="panel-body">
 							<form>
                 <div className="form-group text-left">
-                  <label htmlFor="name">Name</label>
-                  <Field
+                {/*[jwc]+x <label htmlFor="name">Name</label> */}
+                <label htmlFor="email">E-mail</label>
+                <Field
                     name="email"
                     type="text"
                     className="form-control"
                     component="input"
-                    placeholder="Enter the name"
+                    placeholder="Enter the e-mail"
                   />
                 </div>
                 <div className="form-group text-left">

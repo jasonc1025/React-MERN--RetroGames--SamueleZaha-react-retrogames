@@ -30,14 +30,17 @@ const signup = (req, res) => {
   });
 };
 
+// [jwc] This is the Server-side (yarn api: not 'hot updating'), returning back response back to Client-side [\client\src\sagas\auth.js] (yarn start|build: 'hot updating')
 const login = (req, res) => {
   User.findOne({ email: req.body.email }, '+password', (err, user) => {
     if (!user) {
-      return res.status(401).json({ message: 'Invalid email/password' });
+      // [jwc]+1 return res.status(401).json({ message: 'Invalid email/password' });
+      return res.status(401).json({ message: 'Invalid email' });
     }
     user.comparePwd(req.body.password, (err, isMatch) => {
       if (!isMatch) {
-        return res.status(401).send({ message: 'Invalid email/password' });
+        // [jwc]+1 return res.status(401).send({ message: 'Invalid email/password' });
+        return res.status(401).send({ message: 'Invalid password' });
       }
       res.json({ message: 'You are now logged in', token: createToken(user.name) });
     });

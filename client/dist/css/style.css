@@ -268,7 +268,11 @@ footer {
   height: 100px;
 }
 .scrollable {
-  overflow:scroll; height:600px;
+  /* [jwc]+1 overflow:scroll;  */
+  /* overflow:auto;  */
+  overflow:scroll; 
+  /* [jwc]+1 height:600px; */
+  height:800px;
 }
 .thumbnail {
   background-color: transparent;
